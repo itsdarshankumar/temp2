@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <title>Document</title>
-  </head>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shrinker</title>
   <style>
+    /* Add some basic styles */
     body {
       font-family: Arial, sans-serif;
       background-color: #dfffe3;
@@ -21,28 +18,18 @@
       max-width: 45em;
       margin: 30px auto;
       padding: 20px;
-      /* border-radius: 5px; */
-
       flex-direction: column;
       box-shadow: rgb(230, 233, 249) 0px 0px 2em;
       background: rgb(241, 247, 254);
-      /* padding: 2em; */
       border-radius: 30px;
       gap: 1em;
     }
+
     .ii {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-bottom: 0.7em;
-    }
-    #search-form {
-      /* margin-left: 1rem; */
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
     }
 
     h1 {
@@ -57,14 +44,7 @@
       margin-left: 20px;
     }
 
-    input[type="url"] {
-      width: 92%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      margin-bottom: 2em;
-    }
+    input[type="url"],
     input[type="text"] {
       width: 92%;
       padding: 10px;
@@ -83,6 +63,7 @@
       border-radius: 20px;
       cursor: pointer;
     }
+
     #o {
       width: 50%;
     }
@@ -90,9 +71,6 @@
     .table-wrapper {
       margin: 10px 70px 70px;
       box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
-    }
-    #uu{
-      background-color: #dd3434;
     }
 
     .fl-table {
@@ -106,7 +84,6 @@
       white-space: nowrap;
       background-color: rgb(213, 254, 255);
     }
-
 
     .fl-table td,
     .fl-table th {
@@ -141,6 +118,7 @@
         display: block;
         width: 100%;
       }
+
       .table-wrapper:before {
         display: block;
         text-align: right;
@@ -148,22 +126,27 @@
         color: white;
         padding: 0 0 10px;
       }
+
       .fl-table thead,
       .fl-table tbody,
       .fl-table thead th {
         display: block;
       }
+
       .fl-table thead th:last-child {
         border-bottom: none;
       }
+
       .fl-table thead {
         float: left;
       }
+
       .fl-table tbody {
         width: auto;
         position: relative;
         overflow-x: auto;
       }
+
       .fl-table td,
       .fl-table th {
         padding: 20px 0.625em 0.625em 0.625em;
@@ -176,26 +159,33 @@
         font-size: 13px;
         text-overflow: ellipsis;
       }
+
       .fl-table thead th {
         text-align: left;
         border-bottom: 1px solid #f7f7f9;
       }
+
       .fl-table tbody tr {
         display: table-cell;
       }
+
       .fl-table tbody tr:nth-child(odd) {
         background: none;
       }
+
       .fl-table tr:nth-child(even) {
         background: transparent;
       }
+
       .fl-table tr td:nth-child(odd) {
         background: #f8f8f8;
         border-right: 1px solid #e6e4e4;
       }
+
       .fl-table tr td:nth-child(even) {
         border-right: 1px solid #e6e4e4;
       }
+
       .fl-table tbody td {
         display: block;
         text-align: center;
@@ -211,71 +201,72 @@
       text-decoration: underline;
     }
   </style>
+</head>
 
-  <body>
-    <div class="container">
-      <h1>URL Shrinker</h1>
-      <div class="pp">
-        <form action="/shortUrls" method="POST">
-          <label for="fullUrl">Url:</label>
-          <div class="ii">
-            <input
-              required
-              placeholder="Url"
-              type="url"
-              name="fullUrl"
-              id="fullUrl"
-            />
-          </div>
-          <label for="fullUrl">Note:</label>
-          <div class="ii">
-            <input
-              required
-              placeholder="Note"
-              type="text"
-              name="note"
-              id="fullUrl"
-            />
-            <button type="submit" id="o">Shrink</button>
-          </div>
-        </form>
-        <form action="/search" method="GET" id="search-form">
-           <input
-           type="text"
-           id="search-input"
-           placeholder="Search URL"
-           name="search"
-         />
-  <button type="submit">Search</button>
-</form>
-
-        <form action="/logout" method="POST" >
-          <button type="submit" id="uu">Log Out</button>
-        </form>
-      </div>
-
-      <div class="table-wrapper">
-        <table class="fl-table">
-          <thead>
-            <tr>
-              <th>Full URL</th>
-              <th>Short URL</th>
-              <th>Note</th>
-              <th>Clicks</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% shortUrls.forEach(shortUrl => { %>
-            <tr>
-              <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
-              <td><a href="/redirect/<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
-              <td><%= shortUrl.note %></a></td>
-              <td><%= shortUrl.clicks %></td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
+<body>
+  <div class="container">
+    <h1>URL Shrinker</h1>
+    <div class="pp">
+      <form action="/shortUrls" method="POST">
+        <label for="fullUrl">URL:</label>
+        <div class="ii">
+          <input
+            required
+            placeholder="URL"
+            type="url"
+            name="fullUrl"
+            id="fullUrl"
+          />
+        </div>
+        <label for="fullUrl">Note:</label>
+        <div class="ii">
+          <input
+            required
+            placeholder="Note"
+            type="text"
+            name="note"
+            id="fullUrl"
+          />
+          <button type="submit" id="o">Shrink</button>
+        </div>
+      </form>
+      <form action="/search" method="GET" id="search-form">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search URL"
+          name="search"
+        />
+        <button type="submit">Search</button>
+      </form>
+      <form action="/logout" method="POST">
+        <button type="submit" id="uu">Log Out</button>
+      </form>
     </div>
-  </body>
+
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>Full URL</th>
+            <th>Short URL</th>
+            <th>Note</th>
+            <th>Clicks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% shortUrls.forEach(shortUrl => { %>
+          <tr>
+            <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+            <td><a href="/redirect/<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+            <td><%= shortUrl.note %></a></td>
+            <td><%= shortUrl.clicks %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
 </html>

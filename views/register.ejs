@@ -5,7 +5,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #cfe1f6;
+      background-image: url(./h_project.jpg);
       margin: 0;
       padding: 0;
     }
@@ -16,11 +16,11 @@
 
       flex-direction: column;
       color: rgb(77, 77, 77);
-      background: white;
-      padding: 0.5em;
-      gap: 0.5em;
-      border-radius: 20px;
-      margin-bottom: 2em;
+      background: rgb(195, 251, 200);
+      padding:1em;
+      gap: 0.3em;
+      border-radius: 10px;
+      margin-bottom: 1em;
     }
 
     h1 {
@@ -31,9 +31,9 @@
     form {
       display: flex;
       max-width: 300px;
-      margin: 30px auto;
-      padding: 20px;
-      /* border-radius: 5px; */
+      margin: 20px auto;
+      padding: 30px;
+     border-radius: 5px; 
 
 
       flex-direction: column;
@@ -41,7 +41,7 @@
       background: rgb(241, 247, 254);
       /* padding: 2em; */
       border-radius: 30px;
-      gap: 1em;
+      gap: 0.2em;
 
     }
 
@@ -97,6 +97,11 @@
     #message{
       margin-bottom: 3px;
     }
+    .log{
+      font-size:large;
+      color: #fff;
+      animation: animate 2s linear infinite;
+    }
     
 
     @media only screen and (max-width: 480px) {
@@ -123,6 +128,6 @@
     </div>
     <button type="submit">Register</button>
   </form>
-  <a href="/login">Login</a>
+  <a href="/login" class="log">Login</a>
 </body>
 </html>
